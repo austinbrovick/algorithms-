@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+    <script>
+        // Week 7 Day 3
+
+        // isPermutation
+        // Create a function that returns whether the second given
+        // string is a permutation of the first. For example, given
+        // "mister" and "stimer", return true. Given "mister" and
+        // "sister", return false.
+        function isPermutation(one, two) {
+            var arr1 = one.split("");
+            var arr2 = two.split("");
+            var status = false;
+            oneLength = arr1.length;
+            twoLength = arr2.length;
+
+            for (var i = 0; i < twoLength; i++) { // loops through the permutation
+                for (var j = 0; j < oneLength; j++) { // loops through other string
+                    if (arr2[i] == arr1[j]) {
+                        arr1.splice(j, 1);
+                        arr2.splice(i, 1);
+                        i--;
+                        j--;
+                        twoLength--;
+                        oneLength--;
+                    }
+                }
+            }
+            if (arr2.length == 0) {
+                status = true;
+            }
+            console.log(status);
+            return status;
+        }
+
+
+        // allPermutations
+        // Create a function that returns all permutations of a
+        // given string. Example: given "team", return an array
+        // with the unique 24​strings including "team", "meat",
+        // "tame", "mate", "aemt", "tmea", "etam", "atme", etc.
+        // How can you know that you covered them all?
+
+
+        function hello(str) {
+            var arr = [];
+            if (str.length == 1) {
+                return str;
+            } else {
+                allPermsR(str, arr);
+            }
+            console.log(arr.length);
+            console.log(arr);
+            return arr;
+        }
+
+        function allPermutations(str, arr, strToPush) {
+            if (strToPush == undefined) {
+                strToPush = "";
+            }
+            if (str.length == 0) {
+                arr.push(strToPush);
+                return arr;
+            }
+
+            for (var i = 0; i < str.length; i++) {
+
+                var character = str[i];
+                var newString = str.substring(0, i) + str.substring(i + 1);
+                console.log(newString);
+                allPermsR(newString, arr, strToPush + character);
+            }
+
+        }
+
+
+
+    </script>
+<body>
+</body>
+
+
+</html>
