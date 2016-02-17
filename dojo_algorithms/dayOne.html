@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<script>
+    // number one
+    function print1to255() {
+        var sum = 0;
+        for (var i = 1; i <= 255; i++) {
+            console.log(i);
+        }
+        return sum;
+    }
+    // number two
+    function printOdds1to255() {
+        var sum = 0;
+        for (var i = 1; i <=255; i++) {
+            if ( i % 2 == 1) {
+                console.log(sum);
+                sum += i;
+            }
+        }
+        console.log(sum);
+        return sum;
+    }
+    // number three
+    function printSum1to255() {
+        var sum = 0;
+        for (var i = 1; i <=255; i++) {
+            sum += i;
+            console.log(sum);
+        }
+        return sum;
+    }
+    // number four
+    function printArrayValues(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+    }
+    // number five
+    function findMax(arr) {
+        var max = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        console.log(max);
+        return max;
+    }
+    // number six
+    function getAverage(arr) {
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return Math.floor(sum / arr.length);
+    }
+
+</script>
+<body>
+</body>
+
+
+</html>
