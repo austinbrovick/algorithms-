@@ -45,11 +45,19 @@
 
         function GenerateCoinChange(cents) {
             qs = Math.floor(cents / 25);
+            cents = cents % 25;
+            ds = Math.floor(cents/ 10);
+            cents = cents % 10;
+            ns = Math.floor(cents/ 5);
+            cents = cents % 5;
+            ps = cents;
 
+            var numberOfCoins = qs + ds + ns + ps;
+            console.log(numberOfCoins);
 
         }
 
-        GenerateCoinChange(100);
+
 
     </script>
 </head>
