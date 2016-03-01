@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        // Week 1 Day 4
+
+        // Threes and Fives
+        // Add all the values from 100 and 4000000 (inclusive)
+        // that are evenly divided by 3 or 5 but not both.
+        // Display this value in the console.
+
+        function threesAndFives() {
+            var sum = 0;
+            for (var i = 100; i <= 4000000; i++) {
+                if (i % 3 == 0 && i % 5 != 0) {
+                    sum += i;
+                } else if (i % 5 == 0 && i % 3 != 0) {
+                    sum += i;
+                }
+            }
+            console.log(sum);
+            return sum;
+        }
+        // Second challenge: Create one where start and end
+        // values are customizable (defaults 100 and 4000000).
+        function threesAndFivesCustom(start, finish) {
+            var sum = 0;
+            for (var i = start; i <= finish; i++) {
+                if (i % 3 == 0 && i % 5 != 0) {
+                    sum += i;
+                } else if (i % 5 == 0 && i % 3 != 0) {
+                    sum += i;
+                }
+            }
+            console.log(sum);
+            return sum;
+        }
+
+        // Generate Coin Change
+
+        // Implement a function generateCoinChange() that accepts a parameter
+        // for the number of cents, and computes how to represent that
+        // amount with the smallest number of coins. Console.log the result.
+
+        function GenerateCoinChange(cents) {
+            qs = Math.floor(cents / 25);
+
+
+        }
+
+        GenerateCoinChange(100);
+
+    </script>
+</head>
+<body>
+</body>
+
+
+</html>

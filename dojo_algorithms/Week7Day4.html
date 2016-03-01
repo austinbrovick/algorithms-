@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+    // Week 7 Day 4
+
+    // dedupeString
+    // Create a function that removes duplicate characters
+    // from a string (case­sensitive). Keep only the last
+    // instance of each character, including punctuation.
+    // Given "Snaps! crackles! pops!", return "Snrackle ops!".
+
+
+    function deDupeString(str) {
+        var arr = str.split("");
+        var length = arr.length;
+
+        for (var i = arr.length - 1; i >= 0; i--) {
+            for (var j = arr.length  - 1 - (arr.length - i); j >= 0; j--) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(j, 1);
+                    console.log(arr);
+                    j--;
+                    i--;
+                }
+            }
+        }
+
+        console.log(arr.join(""));
+        return arr.join("");
+    }
+
+
+
+    // deDupeString( "Snaps! crackles! pops!");
+
+
+
+
+    // idxFirstUniqLtr
+    // Return the index of the first unique (case­sensitive)
+    // character in a given string. Ex.: "empathetic monarch
+    // meets primo stinker" should return 35 (str[35] == "k").
+
+
+    function idxFirstUniqLtr(str) {
+        var arr = str.split("");
+        var status;
+        for (var i = 0; i < arr.length; i++) {
+            status = true;
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    status = false;
+                    arr.splice(j+1, 1);
+                    j--;
+                }
+            }
+            if (status == true) {
+                return i;
+            }
+        }
+    }
+
+
+    console.log(idxFirstUniqLtr('empathetic monarch meets primo stinker'));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+
+
+</html>

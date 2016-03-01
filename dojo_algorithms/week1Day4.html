@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+    // Statistics to Doubles
+    // Implement a ‘die’ that randomly returns an integer between 1 and 6 inclusive. Roll a pair of these dice, tracking the statistics until doubles are rolled. Display the n​umber of rolls,​m​in,​m​ax,​and a​verage.
+    function Doubles() {
+      var one = Math.ceil(Math.random() * 6);
+      var two = Math.ceil(Math.random() * 6);
+      var min = one + two;
+      var max = one + two;
+      var count = 1;
+      var sum = one + two;
+      while(one != two) {
+        one = Math.ceil(Math.random() * 6);
+        two = Math.ceil(Math.random() * 6);
+        count++;
+        sum += one + two;
+        if (one + two > max) {
+          max = one + two;
+        } else if (one + two < min) {
+          min = one + two;
+        }
+      }
+      console.log("one :", one);
+      console.log("two :", two);
+      console.log("min :", min);
+      console.log("max :", max);
+      console.log("average :", sum/count);
+      console.log(one + two);
+      return one + two;
+
+    }
+
+
+
+
+    // Sum To One Digit
+    // Implement a function sumToOne() that, given a number, sums that number’s digits repeatedly until the sum is only one digit. Return that final one digit result.
+    function sumToOne(num) {
+        console.log("starter :", num)
+        var sum = 0;
+        while ( num > 10 ){
+            var sum = 0;
+            var temp = num;
+            while ( temp > 0) {
+                sum = sum + (temp % 10)
+                console.log("sum :", sum);
+                temp = Math.floor(temp/10);
+                console.log("temp :", temp);
+            }
+            num = sum;
+        }
+        return num;
+        console.log("answer : ", num);
+    }
+
+
+
+
+
+    </script>
+</head>
+<body>
+</body>
+
+
+</html>
