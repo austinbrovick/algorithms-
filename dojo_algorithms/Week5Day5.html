@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        function createString(num) {
+            var left = "("
+            var right = ")"
+            var string = ""
+
+
+
+            var arr = [];
+            for (var i = 0; i < num; i++) {
+                string += left
+                string += right
+            }
+            console.log(string);
+            var arr = string.split("");
+            console.log(arr);
+
+
+
+        }
+        // createString(4)
+
+        function recursion(num) {
+            var arr = []
+            if(num < 1) {
+                arr.push("(")
+                arr.push(")")
+                console.log(arr);
+                return arr
+            } else {
+                arr.push("abc");
+                recursion(num-1);
+            }
+
+        }
+        // recursion(5);
+
+
+        // function numIntoArr(num) {
+        //     var arr = [];
+        //     for (var i = 0; i < num-1; i++) {
+        //         arr.push("(");
+        //         arr.push(")");
+        //     }
+        //     console.log(arr);
+
+        //     for (var i = 0; i < num*2; i+=3) {
+        //         arr.splice(i, 0, "{");
+        //         arr.splice(i+1, 0, "}");
+        //         console.log(arr);
+        //         // arr.push("abc");
+        //     }
+
+        //     console.log(arr);
+        //     return arr;
+        // }
+
+
+        // numIntoArr(5)
+
+        function parens(num, array) {
+            var answer = []
+            if(num < 1) {
+
+            } else {
+                parens(num-1, )
+            }
+        }
+
+
+
+
+// def balanced_parens(num):
+//     if num == 1:
+//         return set(["()"])
+//     else:
+//         last_level = balanced_parens(num-1)
+//         output = set()
+//         for string in last_level:
+//             for i in range(0, len(string) + 1):
+//                 output.add(string[:i] + "()" + string[i:])
+// ​
+//         return output
+// ​
+// test_case = balanced_parens(4)
+// for string in test_case: print(string)
+// print(len(test_case))
+
+
+
+
+
+// function balanced_parens(num) {
+//     if (num == 1) {
+//         return set(["()"])
+//     } else {
+//         last_level = balanced_parens(num-1)
+//         output = set()
+//         for (var i = 0; i < last_level.length; i++) {
+
+//         }
+//     }
+// }
+
+
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+    <div id='main_wrapper'>
+
+    </div>
+</body>
+
+
+</html>
