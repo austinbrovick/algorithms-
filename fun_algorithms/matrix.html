@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+
+// Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+// For example,
+// Given the following matrix:
+
+// [
+//  [ 1, 2, 3 ],
+//  [ 4, 5, 6 ],
+//  [ 7, 8, 9 ]
+// ]
+
+// You should return [1,2,3,6,9,8,7,4,5].
+
+// this algorithm was found on leetcode.com  || https://leetcode.com/problems/spiral-matrix/
+
+        function matrix(a, n) {
+            // a = the array you were given
+            // n = the array of all the values in spiral order
+
+            // check to see if you are given a valid matrix
+            for(var i = 0; i < a.length; i++) {
+                if(a[0].length != a.length) {
+                    console.log("false");
+                    return false
+                }
+            }
+            // if you are given an array with just one array in it, you know it just has one index based on the principles of the matrix || this happens when the dimensions are odd
+            if(a.length == 1) {
+                n.push(a[0][0]);
+                printArr(n);
+                return(n);
+            // if there is nothing left in the array, just return n || this happens with the dimensions are even
+            } else if (a.length == 0) {
+                printArr(n);
+                return(n);
+            } else {
+                // if you haven't gotten to the center yet, do this
+
+                // adds each index of the first row to n, then splices out that whole row
+                for(var i = 0; i < a[0].length; i++) {
+                    n.push(a[0][i]);
+                }
+                a.splice(0, 1);
+                // pushes the last value of every array in a to n and then splices out that value
+                for(var i = 0; i < a.length; i++) {
+                    n.push(a[i][a[i].length-1]);
+                    var arrHolder = a[i];
+                    arrHolder.splice(a[i].length-1, 1);
+                }
+                // pushes the whole last array in a into n starting from the end and splices out the last row
+                for(var i = a[a.length-1].length-1; i >= 0; i--) {
+                    n.push(a[a.length-1][i]);
+                }
+                a.splice((a.length-1), 1);
+                // pushes the first value of every row starting from the last row and splices it out
+                for(var i = a.length-1; i >= 0; i--) {
+                    n.push(a[i][0]);
+                    var arrHolder = a[i];
+                    arrHolder.splice(0, 1);
+                }
+                matrix(a, n);
+            }
+            // return n;
+        }
+        // just a function to print the array
+        function printArr(a) {
+            for(var i = 0; i < a.length; i++) {
+                console.log(a[i]);
+            }
+        }
+        // test arrays
+        var mat = [[1, 2, 3],
+                    [8, 9, 4],
+                    [7, 6, 5]]
+
+        var mat2 = [[1, 2],
+                    [4, 3]]
+
+
+
+        var mat3 = [[1, 2, 3, 4, 5],
+                    [16, 17, 18, 19, 6],
+                    [15, 24, 25, 20, 7],
+                    [14, 23, 22, 21, 8],
+                    [13, 12, 11, 10, 9]]
+
+        var mat4 = [[1, 2, 3, 4, 5, 6, 7],
+                    [24, 25, 26, 27, 28, 29, 8],
+                    [23, 40, 41, 42, 43, 30, 9],
+                    [22, 39, 48, 49, 44, 31, 10],
+                    [21, 38, 47, 46, 45, 32, 11],
+                    [20, 37, 36, 35, 34, 33, 12],
+                    [19, 18, 17, 16, 15, 14, 13]]
+
+        var mat5 = [[1, 2, 3, 4, 5, 6, 7],
+                    [24, 25, 26, 27, 28, 29, 8],
+                    [23, 40, 41, 42, 43, 30, 9],
+                    [22, 39, 48, 49, 44, 31, 10],
+                    [21, 38, 47, 46, 45, 32, 11],
+                    [20, 37, 36, 35, 34, 33, 12],
+                    [19, 18, 17, 16, 15, 14, 13]]
+
+        var mat6 = [[1, 2, 3, 4],
+                    [12, 13, 14, 5],
+                    [11, 16, 15, 6],
+                    [10, 9, 8, 7]]
+
+        var testArr = [[ 1, 2, 3 ],
+                        [ 4, 5, 6 ],
+                        [ 7, 8, 9 ]]
+
+        var invalidArr = [[1, 2, 4],
+                            [1, 3]]
+
+        matrix(mat5, []);
+
+    </script>
+
+
+
+</head>
+<body>
+</body>
+
+
+</html>
