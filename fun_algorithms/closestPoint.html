@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    points = [{x:0, y:5}, {x:1, y:0}, {x:1, y:6}, {x:2, y:7}];
+    function closestPoint(points) {
+        var p1 = points[0];
+        var p2 = points[1];
+        var minDis = Math.abs((p1.x-p2.x) + (p1.y-p2.y))
+
+        // grab a starting point
+        for(var i = 0; i < points.length-1; i++) {
+
+            // loop through all the next points
+            for(var j = i+1; j < points.length; j++) {
+                var totalDistance = ((points[i].x - points[j].x) + (points[i].y - points[j].y))
+                console.log("total distance between point ", i, " and point ", j, " is ", totalDistance);
+                if(Math.abs(totalDistance) < minDis) {
+                    p1 = points[i];
+                    p2 = points[j];
+                }
+            }
+        }
+        console.log(p1);
+        console.log(p2);
+        return true
+    }
+
+    closestPoint(points);
+
+</script>
+</head>
+<body>
+</body>
+
+
+</html>
