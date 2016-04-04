@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    var arr = [3, 53, 4, 66, 3, 4, 2, 9, 8, 8, -5];
+    function bubbleSort(arr) {
+        for(var i = 0; i < arr.length-1; i++) {
+            for(var j = 0; j < arr.length-1; j++) {
+                if(arr[j] > arr[j+1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+        return arr
+    }
+    bubbleSort(arr);
+
+    function selectionSort(arr) {
+        for(var i = 0; i < arr.length - 1; i++) {
+            var smallest = arr[i];
+            var holder = i;
+            for(var j = i; j < arr.length -1; j++) {
+                if(arr[j] < smallest) {
+                    smallest = arr[j];
+                    holder = j;
+                }
+            }
+            var temp = arr[i];
+            arr[i] = smallest;
+            arr[holder] = temp;
+        }
+        console.log(arr);
+        return arr;
+    }
+    selectionSort(arr);
+
+
+
+</script>
+</head>
+<body>
+</body>
+
+
+</html>
