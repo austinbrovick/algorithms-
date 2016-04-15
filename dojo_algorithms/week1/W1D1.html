@@ -1,0 +1,155 @@
+
+<script>
+// Print 1-255
+// Print all the integers from 1 to 255
+
+// option one with for loop
+function print1To255ForLoop() {
+    for(var i = 1; i <= 255; i++) {
+        console.log(i);
+    }
+}
+function print1To255WhileLoop() {
+    var i = 1;
+    while(i <= 255) {
+        console.log(i);
+        i++;
+    }
+}
+
+
+// Print Sum 0-255
+// Print integers from 0 to 255, and the sum so far.
+
+
+function sum0to255ForLoop() {
+    var sum = 0;
+    for(var i = 1; i <= 255; i++) {
+        sum += i;
+        console.log(i + ": ", sum);
+    }
+}
+
+function sum0To255Recursion(num, sum) {
+    if(!sum) { sum = 0; }
+    if(!num) { num = 1; }
+    if(num === 256) {
+        return true;
+    } else {
+        console.log(num + ": ", sum+num);
+        return sum0To255Recursion(num + 1, sum+num);
+    }
+}
+
+function sum0To255Recursion2(n) {
+    if(n == 0) {
+        return 0;
+    } else {
+        var partial = n + sum0To255(n-1);
+        console.log(n, ": ", partial);
+        return partial
+    }
+}
+
+
+
+// Find Max
+// Print the largest element in a given array
+function printArrayMaxForLoop(arr) {
+    var max = arr[0];
+    for(var i = 0; i < arr.length; i++) {
+        if(arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    console.log(max);
+    return max;
+}
+
+function printArrayMaxRecursion(arr, max, iterator) {
+    if (!max) { max = arr[0]; }
+    if (!iterator) { iterator = 0; }
+    if (iterator === arr.length) {
+        console.log(max);
+        return max;
+    } else {
+        if (arr[iterator] > max) {
+            max = arr[iterator];
+        }
+        iterator++;
+        return printArrayMaxRecursion(arr, max, iterator);
+    }
+}
+
+
+// Print Odds 1-255
+// Print all odd integers from 1 to 255.
+function printOddNumbersTo255ForLoop() {
+    for (var i = 1; i <= 255; i += 2) {
+        console.log(i);
+    }
+}
+
+function printOddNumbersTo255WhileLoop() {
+    var i = 1;
+    while (i <= 255) {
+        console.log(i);
+        i += 2;
+    }
+}
+
+function printOddNumbersTo255Recursion(num) {
+    if (!num) { num = 1 }
+    if (num == 257) {
+        return true;
+    }
+    console.log(num);
+    return printOddNumbersTo255Recursion(num + 2);
+}
+
+// Iterate Array
+// Print all values in a given array
+
+function iterateArrayForLoop(arr) {
+    for(var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+
+function iterateArrayForLoop(arr, i) {
+    if (!i) { i = 0; }
+    if (!arr) { return false; }
+    if (i == arr.length) {
+        return true;
+    } else {
+        console.log(arr[i]);
+        return iterateArrayForLoop(arr, ++i);
+    }
+}
+
+// Get Average
+// Analyze an array's values and print the average
+
+function getAverageForLoop(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+
+
+
+function getAverageRecusion(arr, i, sum) {
+    if (!i) { i = 0; }
+    if (!sum) { sum = 0; }
+    if (i === arr.length) {
+        return sum/arr.length;
+    } else {
+        sum += arr[i];
+        return getAverageRecusion(arr, ++i, sum);
+    }
+}
+
+
+</script>
