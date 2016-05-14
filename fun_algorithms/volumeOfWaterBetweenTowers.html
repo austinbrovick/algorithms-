@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+// given an array of numbers representing the height of towers, what is the max volume of water you can hold between two towers ?
+
+
+array = [100, 0, 1000];
+
+function towers(arr) {
+    var maxVolume = 0;
+    for(var i = 0; i < arr.length; i++) {
+        volume = findMaxVolumeForIdx(arr, i);
+        if(volume > maxVolume) {
+            maxVolume = volume;
+        }
+    }
+    console.log(maxVolume);
+    reversed_array = arr.reverse()
+    for(var i = 0; i < reversed_array.length; i++) {
+        volume = findMaxVolumeForIdx(reversed_array, i);
+        if(volume > maxVolume) {
+            maxVolume = volume;
+        }
+    }
+    console.log(maxVolume);
+    return maxVolume
+}
+
+function findMaxVolumeForIdx(arr, idx) {
+    var temp = 1;
+    var volume = 0;
+    var buildingHeight = arr[idx];
+    while(arr[idx+temp] < buildingHeight) {
+        volume += (buildingHeight-arr[idx+temp]);
+        temp++;
+    }
+    if(idx + temp == arr.length) {
+        volume = -1;
+    }
+    return volume;
+}
+
+
+towers(array);
+
+
+</script>
+
+</head>
+<body>
+</body>
+
+
+</html>
